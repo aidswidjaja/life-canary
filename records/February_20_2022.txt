@@ -1,0 +1,23 @@
+-----BEGIN PGP SIGNED MESSAGE-----
+Hash: SHA512
+
+### MSG BEGIN ###
+
+*** LIFE CANARY ***
+=== aidswidjaja ===
+
+The date is ${DATE_REPLACE} and I am still alive.
+
+GitHub: https://github.com/aidswidjaja/life-canary
+Website: https://life-canary.adrian.id.au
+Backup website: https://aidswidjaja.github.io/life-canary
+
+### MSG END ###
+-----BEGIN PGP SIGNATURE-----
+
+iI8EARYKADcWIQQGV2wWtM1B+hWJm9wzcdJPG6lmlAUCYhF35hkcbGlmZS1jYW5h
+cnlAYWRyaWFuLmlkLmF1AAoJEDNx0k8bqWaU8nABAJE9n1HMx9JDFCBR0Le5apvU
+OUUMzBxS3GHev5qMkM5fAP9r5W5/DHl0OxucGOeNqTLPOUz93WjFM6YZaRiLGkZy
+AA==
+=T6mU
+-----END PGP SIGNATURE-----

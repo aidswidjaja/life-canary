@@ -83,7 +83,7 @@ draw_progress_bar 24
 gsed -i 's/REPLACE_ME/${DATE_REPLACE}/g' unsigned/${DATE_NAME}.txt 
 draw_progress_bar 36
 
-gpg --output -u ${EMAIL} records/${DATE_NAME}.txt --clearsign unsigned/${DATE_NAME}.txt
+gpg -u ${EMAIL} --output records/${DATE_NAME}.txt --clearsign unsigned/${DATE_NAME}.txt
 draw_progress_bar 48
 
 cp -f records/${DATE_NAME}.txt latest_signed.txt
