@@ -6,12 +6,24 @@
 # output to records/
 # git push
 
+# h/t https://stackoverflow.com/a/5947802/6299634
+
 source source/progress.sh
 
-echo << EOF
+# ANSI escape colour codes
 
-					WELCOME TO
+CYAN='\033[0;36m'
+NC='\033[0m' # No Color
+LIGHTRED='\033[1;31m'
+LIGHTGREEN='\033[1;32m'
+YELLOW='\033[1;33m'
+LIGHTPURPLE='\033[1;35m'
+WHITE='\033[1;37m'
 
+printf << EOF
+
+					${WHITE}WELCOME TO${NC}
+					${CYAN}
  _      _  __        _____                             
 | |    (_)/ _|      / ____|                            
 | |     _| |_ ___  | |     __ _ _ __   __ _ _ __ _   _ 
@@ -20,31 +32,46 @@ echo << EOF
 |______|_|_| \___|  \_____\__,_|_| |_|\__,_|_|   \__, |
                                                   __/ |
                                                  |___/ 
-												 
+${YELLOW}												 
 copyright (c) aidswidjaja 2022 // github.com/aidswidjaja
-
+${NC}
 EOF
 
-echo "Run this script in life-canary/ on macOS/Linux with GNU coreutils"
+echo "${LIGHTRED}Run this script in life-canary/ on macOS/Linux with GNU coreutils${NC}"
 
 # h/t https://stackoverflow.com/a/8597411/6299634
 
-if [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work. Install with brew install gdate gsed."
+if [[ "$OSTYPE" == "linux"* ]]; then
+	DATE="date"
+	SED="sed"
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+	echo "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work. Install with brew install gdate gsed.${NC}"
+	DATE="gdate"
+	SED="gsed"
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-	echo "HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work."
+	echo "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work.${NC}"
+	DATE="gdate"
+	SED="gsed"
 elif [[ "$OSTYPE" == "msys" ]]; then
-	echo "WARNING: You're using the MinGW GNU coreutils for Windows. No guarantees this will work: use Windows Subsystem for Linux."
+	echo "${LIGHTRED}WARNING: You're using the MinGW GNU coreutils for Windows. No guarantees this will work: use Windows Subsystem for Linux.${NC}"
 elif [[ "$OSTYPE" == "win32" ]]; then
-	echo "WARNING: You're running this bash script on Windows. This probably won't work: use Windows Subsystem for Linux."
+	echo "${LIGHTRED}WARNING: You're running this bash script on Windows. This probably won't work: use Windows Subsystem for Linux.${NC}"
 else
-	echo "WARNING: Unrecognised operating system. Nani?"
+	echo "${LIGHTRED}WARNING: Unrecognised operating system. Nani?${NC}"
+	DATE="gdate"
+	SED="gsed"
 fi
 
-if date --version >/dev/null 2>&1 ; then
-    echo "INFO: Using GNU date, naisu!"
+if ${DATE} --version >/dev/null 2>&1 ; then
+    echo "${CYAN}INFO: Using GNU date, naisu!${NC}"
 else
-    echo "WARNING: Not using GNU date. This may fail."
+    echo "${LIGHTPURPLE}WARNING: Not using GNU date. This may fail.${NC}"
+fi
+
+if ${SED} --version >/dev/null 2>&1 ; then
+    echo "${CYAN}INFO: Using GNU date, naisu!${NC}"
+else
+    echo "${LIGHTPURPLE}WARNING: Not using GNU date. This may fail.${NC}"
 fi
 
 echo << EOF
@@ -66,8 +93,15 @@ EOF
 echo "===== BEGINNING EXECUTION ======"
 
 setup_scroll_area
-DATE_NAME=$(gdate '+%B_%d_%Y')
-DATE_REPLACE=$(gdate '+%B %d %Y')
+
+if [[ ${DATE} == "date" ]]; then
+	DATE_NAME=$(date '+%B_%d_%Y')
+	DATE_REPLACE=$(date '+%B %d %Y')
+else
+	DATE_NAME=$(gdate '+%B_%d_%Y')
+	DATE_REPLACE=$(gdate '+%B %d %Y')
+fi
+
 
 if [ "$1" == "" ] || [ $# -gt 1 ]; then
 	EMAIL="life-canary@adrian.id.au"
@@ -80,7 +114,7 @@ draw_progress_bar 12
 cp source/template.txt unsigned/${DATE_NAME}.txt
 draw_progress_bar 24
 
-gsed -i 's/REPLACE_ME/${DATE_REPLACE}/g' unsigned/${DATE_NAME}.txt 
+${SED} -i 's/REPLACE_ME/${DATE_REPLACE}/g' unsigned/${DATE_NAME}.txt 
 draw_progress_bar 36
 
 gpg -u ${EMAIL} --output records/${DATE_NAME}.txt --clearsign unsigned/${DATE_NAME}.txt
