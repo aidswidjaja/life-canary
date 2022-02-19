@@ -20,24 +20,22 @@ YELLOW='\033[1;33m'
 LIGHTPURPLE='\033[1;35m'
 WHITE='\033[1;37m'
 
-printf << EOF
+printf "
+		${WHITE}WELCOME TO${NC}
+		${CYAN}
+"
 
-					${WHITE}WELCOME TO${NC}
-					${CYAN}
- _      _  __        _____                             
-| |    (_)/ _|      / ____|                            
-| |     _| |_ ___  | |     __ _ _ __   __ _ _ __ _   _ 
-| |    | |  _/ _ \ | |    / _` | '_ \ / _` | '__| | | |
-| |____| | ||  __/ | |___| (_| | | | | (_| | |  | |_| |
-|______|_|_| \___|  \_____\__,_|_| |_|\__,_|_|   \__, |
-                                                  __/ |
-                                                 |___/ 
+cat source/logo.txt
+
+printf "
+
+${NC}
 ${YELLOW}												 
 copyright (c) aidswidjaja 2022 // github.com/aidswidjaja
 ${NC}
-EOF
+"
 
-echo "${LIGHTRED}Run this script in life-canary/ on macOS/Linux with GNU coreutils${NC}"
+printf "${LIGHTPURPLE}HEADS UP: Run this script in life-canary/ on macOS/Linux with GNU coreutils${NC}\n"
 
 # h/t https://stackoverflow.com/a/8597411/6299634
 
@@ -45,36 +43,36 @@ if [[ "$OSTYPE" == "linux"* ]]; then
 	DATE="date"
 	SED="sed"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	echo "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work. Install with brew install gdate gsed.${NC}"
+	printf "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work. Install with brew install gdate gsed.${NC}\n"
 	DATE="gdate"
 	SED="gsed"
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
-	echo "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work.${NC}"
+	printf "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work.${NC}\n"
 	DATE="gdate"
 	SED="gsed"
 elif [[ "$OSTYPE" == "msys" ]]; then
-	echo "${LIGHTRED}WARNING: You're using the MinGW GNU coreutils for Windows. No guarantees this will work: use Windows Subsystem for Linux.${NC}"
+	printf "${LIGHTRED}WARNING: You're using the MinGW GNU coreutils for Windows. No guarantees this will work: use Windows Subsystem for Linux.${NC}\n"
 elif [[ "$OSTYPE" == "win32" ]]; then
-	echo "${LIGHTRED}WARNING: You're running this bash script on Windows. This probably won't work: use Windows Subsystem for Linux.${NC}"
+	printf "${LIGHTRED}WARNING: You're running this bash script on Windows. This probably won't work: use Windows Subsystem for Linux.${NC}\n"
 else
-	echo "${LIGHTRED}WARNING: Unrecognised operating system. Nani?${NC}"
+	printf "${LIGHTRED}WARNING: Unrecognised operating system. Nani?${NC}\n"
 	DATE="gdate"
 	SED="gsed"
 fi
 
 if ${DATE} --version >/dev/null 2>&1 ; then
-    echo "${CYAN}INFO: Using GNU date, naisu!${NC}"
+    printf "${CYAN}INFO: Using GNU date, naisu!${NC}\n"
 else
-    echo "${LIGHTPURPLE}WARNING: Not using GNU date. This may fail.${NC}"
+    printf "${LIGHTPURPLE}WARNING: Not using GNU date. This may fail.${NC}\n"
 fi
 
 if ${SED} --version >/dev/null 2>&1 ; then
-    echo "${CYAN}INFO: Using GNU date, naisu!${NC}"
+    printf "${CYAN}INFO: Using GNU sed, naisu!${NC}\n"
 else
-    echo "${LIGHTPURPLE}WARNING: Not using GNU date. This may fail.${NC}"
+    printf "${LIGHTPURPLE}WARNING: Not using GNU sed. This may fail.${NC}\n"
 fi
 
-echo << EOF
+printf "
 ===== DEPENDENCIES =====
 
 - git°
@@ -85,12 +83,12 @@ echo << EOF
 °git (including signed commits) should be configured beforehand
 ^gpg should be configured. By default, Life Canary assumes the email life-canary@adrian.id.au but you can change this by running the script with an email arg (e.g ./run.sh kirito@aincrad.org).
 *sed and time should be from GNU coreutils, not BSD.
-
-EOF
+\n
+"
 
 # h/t https://stackoverflow.com/a/238094/6299634
 
-echo "===== BEGINNING EXECUTION ======"
+printf "${WHITE}===== BEGINNING EXECUTION ======${NC}\n\n"
 
 setup_scroll_area
 
@@ -133,4 +131,4 @@ git push origin main
 draw_progress_bar 100
 destroy_scroll_area
 
-echo "===== FINISHED ======"
+printf "${WHITE}===== FINISHED ======${NC}\n"
