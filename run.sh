@@ -83,10 +83,10 @@ draw_progress_bar 24
 gsed -i 's/REPLACE_ME/${DATE_REPLACE}/g' unsigned/${DATE_NAME}.txt 
 draw_progress_bar 36
 
-gpg --output records/${DATE_NAME}.txt --clearsign unsigned/${DATE_NAME}.txt -u ${EMAIL}
+gpg --output -u ${EMAIL} records/${DATE_NAME}.txt --clearsign unsigned/${DATE_NAME}.txt
 draw_progress_bar 48
 
-cp -f latest_signed.txt records/${DATE_NAME}.txt
+cp -f records/${DATE_NAME}.txt latest_signed.txt
 draw_progress_bar 60
 
 git add -A
