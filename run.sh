@@ -61,7 +61,7 @@ echo << EOF
 
 EOF
 
-https://stackoverflow.com/a/238094/6299634
+# h/t https://stackoverflow.com/a/238094/6299634
 
 echo "===== BEGINNING EXECUTION ======"
 
