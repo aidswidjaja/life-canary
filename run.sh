@@ -112,7 +112,7 @@ draw_progress_bar 12
 cp source/template.txt unsigned/${DATE_NAME}.txt
 draw_progress_bar 24
 
-${SED} -i 's/REPLACE_ME/${DATE_REPLACE}/g' unsigned/${DATE_NAME}.txt 
+${SED} -i "s/REPLACE_ME/${DATE_REPLACE}/g" unsigned/${DATE_NAME}.txt 
 draw_progress_bar 36
 
 gpg -u ${EMAIL} --output records/${DATE_NAME}.txt --clearsign unsigned/${DATE_NAME}.txt
