@@ -1,0 +1,46 @@
+<!doctype html>
+<html class="no-js" lang="en-AU">
+
+<head>
+  <meta charset="utf-8">
+  <title>Life Canary</title>
+  <meta name="description" content="Life Canary">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <style>
+  </style>
+
+  <meta name="theme-color" content="#fafafa">
+</head>
+
+<body>
+	
+	<h1>Life Canary</h1>
+	<h3>life-canary.adrian.id.au</h3>
+	<p><em>This site requires JavaScript. <noscript><strong>JavaScript is not enabled.</strong></noscript></em></p>
+	
+	<pre id="contents"></pre>
+	
+	<script>
+		function populatePre(url) {
+		    var xhr = new XMLHttpRequest();
+		    xhr.onload = function () {
+		        document.getElementById('contents').textContent = this.responseText;
+		    };
+		    xhr.open('GET', url);
+		    xhr.send();
+		}
+		populatePre('https://raw.githubusercontent.com/aidswidjaja/life-canary/main/records/latest.txt');
+	</script>
+		
+	<hr>
+	
+	<ul>
+		<li>GitHub: <a href="https://github.com/aidswidjaja/life-canary">https://github.com/aidswidjaja/life-canary</a></li>
+		<li>Website: <a href="https://life-canary.adrian.id.au">https://life-canary.adrian.id.au</a></li>
+		<li>Backup website: <a href="https://aidswidjaja.github.io/life-canary">https://aidswidjaja.github.io/life-canary</a></li>
+	</ul>
+	<p><em>Copyright &copy aidswidjaja 2022</em></p>
+</body>
+
+</html>
