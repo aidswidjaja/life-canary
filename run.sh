@@ -6,6 +6,8 @@
 # output to records/
 # git push
 
+source source/progress.sh
+
 echo << EOF
 
 					WELCOME TO
@@ -75,7 +77,7 @@ fi
 
 draw_progress_bar 12
 
-cp source/template.txt unsigned/.${DATE_NAME}.txt
+cp source/template.txt unsigned/${DATE_NAME}.txt
 draw_progress_bar 24
 
 gsed -i 's/REPLACE_ME/${DATE_REPLACE}/g' unsigned/${DATE_NAME}.txt 
