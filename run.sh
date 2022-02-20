@@ -73,7 +73,7 @@ else
 fi
 
 printf "
-===== DEPENDENCIES =====
+${LIGHTGREEN}===== DEPENDENCIES =====${WHITE}
 
 - git°
 - gpg^
@@ -88,7 +88,7 @@ printf "
 
 # h/t https://stackoverflow.com/a/238094/6299634
 
-printf "${WHITE}===== BEGINNING EXECUTION ======${NC}\n\n"
+printf "${LIGHTGREEN}===== BEGINNING EXECUTION ======${WHITE}\n\n"
 
 setup_scroll_area
 
@@ -131,4 +131,4 @@ git push origin main
 draw_progress_bar 100
 destroy_scroll_area
 
-printf "${WHITE}===== FINISHED ======${NC}\n"
+printf "${LIGHTGREEN}===== FINISHED ======${NC}\n"
