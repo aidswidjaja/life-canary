@@ -2,7 +2,7 @@
 
 > "Even if I'm dying, until I actually die, I am still living."
 
-**The premise of the Life Canary is quite simple:** each month I will update this repository with a PGP-signed message confirming I'm still alive.
+**The premise of the Life Canary is quite simple:** every so often (maybe each month) I will update this repository with a PGP-signed message confirming I'm still alive.
 
 ## PGP
 
