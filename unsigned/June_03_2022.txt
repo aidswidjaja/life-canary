@@ -1,0 +1,12 @@
+### MSG BEGIN ###
+
+*** LIFE CANARY ***
+=== aidswidjaja ===
+
+The date is June 03 2022 and I am still alive.
+
+GitHub: https://github.com/aidswidjaja/life-canary
+Website: https://life-canary.adrian.id.au
+Backup website: https://aidswidjaja.github.io/life-canary
+
+### MSG END ###
