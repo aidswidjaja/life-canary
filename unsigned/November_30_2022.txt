@@ -3,7 +3,7 @@
 *** LIFE CANARY ***
 === aidswidjaja ===
 
-The date is REPLACE_ME and I am still alive.
+The date is November 30 2022 and I am still alive.
 
 GitHub: https://github.com/aidswidjaja/life-canary
 Website: https://life-canary.adrian.id.au

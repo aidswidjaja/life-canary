@@ -43,7 +43,7 @@ if [[ "$OSTYPE" == "linux"* ]]; then
 	DATE="date"
 	SED="sed"
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-	printf "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work. Install with brew install gdate gsed.${NC}\n"
+	printf "${LIGHTPURPLE}HEADS UP: ensure you have gdate and gsed from GNU coreutils, and git for this script to work. Install with brew install coreutils gnu-sed.${NC}\n"
 	DATE="gdate"
 	SED="gsed"
 elif [[ "$OSTYPE" == "freebsd"* ]]; then
