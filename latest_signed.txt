@@ -15,9 +15,9 @@ Backup website: https://aidswidjaja.github.io/life-canary
 ### MSG END ###
 -----BEGIN PGP SIGNATURE-----
 
-iI8EARYKADcWIQQGV2wWtM1B+hWJm9wzcdJPG6lmlAUCY4ahjRkcbGlmZS1jYW5h
-cnlAYWRyaWFuLmlkLmF1AAoJEDNx0k8bqWaUn9cA/2SM2wqOsjuLZ58DGhboCpje
-kQqX3tuIOmRe423kz6FYAQCdcXqYmTCvs1BH3sHdyM0PSjx005K3/Ff8sRfFGTBz
-DA==
-=4LI2
+iI8EARYKADcWIQQGV2wWtM1B+hWJm9wzcdJPG6lmlAUCY4ahpBkcbGlmZS1jYW5h
+cnlAYWRyaWFuLmlkLmF1AAoJEDNx0k8bqWaUGzgA/2+jRqFgiv8uSvdh07vq/isQ
+3qDQ1qZMbvg7kuuqgr7OAP0QLU62+i4SBAzO6Y1wBhvGCSTdGVE1EXjqBDHjkQdI
+Dg==
+=VSKf
 -----END PGP SIGNATURE-----
